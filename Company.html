@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<TITLE>URBANK</TITLE>
+	<META NAME="Generator" CONTENT="EditPlus">
+	<META NAME="Author" CONTENT="">
+	<META NAME="Keywords" CONTENT="">
+	<META NAME="Description" CONTENT="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!---------CSS--------->
+	<link href="bootstrap.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+<!---------Script Code--------->
+	<script src="jquery.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script>
+		  $(function () {
+		var pull = $('#pull');
+		var	menu = $('.main_nav ul');
+		var	menuHeight = menu.height();
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+		
+		});
+		</script>
+		<script>
+		var a = {};
+		$.getJSON("code-test.json", function (data) {
+			a = data;
+			$.each(a, function(idx, elem){
+				$('#grid TBODY').append('<tr><td>'+elem.name+'</td><td>'+elem.apy +'</td><td>$'+elem.earnings +'</td></tr>');
+			});
+		});
+	</script>
+</HEAD>
+<BODY>
+ <!-------Header Navigation------->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  header_bg">
+		<div class=" container">
+            <div class="logo col-lg-7 col-md-6 col-sm-4 col-xs-6 pull-left">URBANK </div>
+            <div class="navigation col-lg-5 col-md-6 col-sm-8 col-xs-6 hidden-xs padding_area">
+                <nav class="navbar ">
+                    <ul class="nav navbar-nav pull-right">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Employee</a></li>
+                      <li  class="active"><a href="#">Company</a></li>
+                      <li><a href="#">Service</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+            <div class="col-lg-11 col-md-12 col-xs-12 col-sm-12 pull-right  visible-xs main_nav" >
+                <ul class="col-lg-12 col-md-12 col-sm-12">
+                    <li ><a href="#">Home</a></li>
+                      <li><a href="#">Employee</a></li>
+                      <li class="active"><a href="#">Company</a></li>
+                      <li><a href="#">Service</a></li>
+                      <li><a href="#">Contact</a></li>
+                </ul>
+                <a href="#" id="pull"></a>
+             </div>
+       </div>
+	</div>
+<!-------Header Navigation------->
+<!-------Main Content------------>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area pull-left">
+		<div class=" container contant_urbank">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area pull-left">
+			<!---------login---------->
+            	 <button type="button" class="btn btn_login col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right visible-xs " data-toggle="modal" data-target="#myModal">Login</button>
+			<!----------Mobile Content------->
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12  pull-left">
+                	<h4 class="content_header">Best Bank Ever!</h4>
+                	<p class="para_text">Pellentesque habitant morbi tristique senectus et netus et <a href="#" class="hyperlink"> malesuada </a> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris <a href="#" class="hyperlink">placerat</a> eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+                    </p>
+			<!------------List---------->
+                	<h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area para_text_header pull-left">Reasons We're Awesome:
+                    </h6>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area pull-left">
+                        <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_list pull-left">
+                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>Aliquam tincidunt mauris eu risus.</li>
+                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>Vestibulum auctor dapibus neque.</li>
+                        </ul>
+                    </div>
+			<!------------Amazing Mobile Info---------->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area content_mobileinfo pull-left">
+                    	<h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 para_mobile_header pull-left"><strong>Amazing Mobile Info</strong></h6>
+                        <p class="col-lg-9 col-md-10 col-sm-8 col-xs-12 para_text pull-left">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+						<div class="phone_img hidden-xs"></div>
+						<div class="phone_img-xs visible-xs"></div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area text_header">
+                     	<span class="mobile_rates"> Rates</span>
+                        <span class="mobile_check">Check them out.</span>
+                    </div>
+			<!------------Mobile Info Table---------->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area">
+                        <table class="table" id="grid">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Annual Percentage Yeild</th>
+                                    <th>Est.Earning for 1 Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                     </div>
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding_area total_grid pull-left">*Based on $50,000 deposit.</div>
+                </div>
+                 <!------ End Mobile Content------->
+                <!------- Start Coloum-right ------------>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 right_nav padding_area">
+                <button type="button" class="btn btn_login col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right hidden-xs" data-toggle="modal" data-target="#myModal">Login</button>
+                 <!------- Tabs ------------>
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a data-target="#news" data-toggle="tab">News</a></li>
+                        <li><a data-target="#archive" data-toggle="tab">Archive</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="news">
+                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_bg padding_area">
+                            	<h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_text pull-left">Pellentesque habitant morbi tristique 				senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_text pull-left">Pellentesque habitant morbi tristique 				senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_text pull-left">Pellentesque habitant morbi tristique 				senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                            </div>
+                        </div>
+                         <!------- Tab Content ------------>
+                      	<div class="tab-pane" id="archive">
+                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_bg padding_area">
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                                <h6 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab_mobile_header pull-left">Lorem ipsum dolor</h6>
+                            </div>
+                      </div>
+                       <!------- End Tab Content ------------>
+                    </div>
+                     <!------- End Tabs ------------>
+            	</div>
+                 <!------End Coloum Right------->
+            </div>
+        </div>
+ 	</div>
+<!-------End Main Content------------>
+<!-------Footer------------>
+	<footer class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+    	<div class="container" >
+        	<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 wrights padding_area" >
+            @2014 UR Bank
+            	
+            </div>
+            <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12 pull-right padding_area fotter_nav" >
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Employee</a></li>
+                    <li class="active"><a href="#">Company</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+             </div>
+        </div>
+    </footer>
+<!-------Footer------------>
+<!-------Modal------------->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+<!-------Modal content------>
+			<div class="modal-content">
+				<div class="modal-header popup_header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Sign In To Your Account</h4>
+				</div>
+				<div class="modal-body  popup_content">
+					<div class="form-group">
+						<label class="col-lg-3 col-md-3 col-xs-12 col-sm-12 popup_label padding_area" for="usr">Username</label>
+						<input type="text" class="popup-control col-lg-9 col-md-9 col-xs-12 col-sm-12" id="usr">
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 col-md-3 col-xs-12 col-sm-12 popup_label padding_area" for="pwd">Password</label>
+						<input type="password" class="popup-control col-lg-9 col-md-9 col-xs-12 col-sm-12" id="pwd">
+					</div>
+				</div>
+				<div class="modal-footer fotter_content">
+					<button type="button" class="btn btn_login_popup" data-dismiss="modal">Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</BODY>
+</HTML>
